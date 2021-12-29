@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DBCreateActivity extends AppCompatActivity
 {
+    // variable ini menginisiasi ke firebase
     // variable yang merefers ke Firebase Realtime Database
     private DatabaseReference database;
     private Context context;
