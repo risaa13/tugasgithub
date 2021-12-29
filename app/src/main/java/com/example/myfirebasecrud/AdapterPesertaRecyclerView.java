@@ -32,21 +32,19 @@ public class AdapterPesertaRecyclerView extends
     // variable yang merefers ke Firebase Realtime Database
     private DatabaseReference database;
 
+    /**
+     * Inisiasi data dan variabel yang akan digunakan
+     */
     public AdapterPesertaRecyclerView(ArrayList<Peserta> pesertaEvent, Context ctx){
-        /**
-         * Inisiasi data dan variabel yang akan digunakan
-         */
         daftarpesertaEvent = pesertaEvent;
         context = ctx;
     }
-
+    /**
+     * Inisiasi View. untuk isi datanya
+     * Di tutorial ini kita hanya menggunakan data String untuk tiap item
+     * dan juga view nya hanyalah satu TextView. tersambung ke layout db read
+     */
     class ViewHolder extends RecyclerView.ViewHolder {
-
-        /**
-         * Inisiasi View. untuk isi datanya
-         * Di tutorial ini kita hanya menggunakan data String untuk tiap item
-         * dan juga view nya hanyalah satu TextView. tersambung ke layout db read
-         */
         TextView tvEmail, tvHari;
 
         ViewHolder(View v) {
@@ -128,10 +126,10 @@ public class AdapterPesertaRecyclerView extends
                 delButton.setOnClickListener(
                         new View.OnClickListener() {
                             @Override
+                            /**
+                             *  Delete data
+                             */
                             public void onClick(View view) {
-                                /**
-                                 *  Delete data
-                                 */
                                 dialog.dismiss();
                                 // Delete Peserta. 137 memanggil database yang ada di firebase
                                 database = FirebaseDatabase.getInstance().getReference();
@@ -171,10 +169,10 @@ public class AdapterPesertaRecyclerView extends
     }
 
     @Override
+    /**
+     * Mengembalikan jumlah item
+     */
     public int getItemCount() {
-        /**
-         * Mengembalikan jumlah item
-         */
         return daftarpesertaEvent.size();
     }
 }
